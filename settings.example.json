@@ -1,0 +1,30 @@
+{
+    "input": [
+        "C:\\some\\path\\to\\backup",
+    ],
+    "outputDir": "C:\\place\\to\\save\\backup",
+    "outputName": "backup",
+    "addDateToOutputName": true,
+    "backupPassword": "SomePassword",
+    "onedrive": {
+        "tenant_id": "common",
+        "client_id": "xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "client_secret_value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "redirect_url": "http://localhost",
+        "refresh_token": null
+    },
+    "cloudBackupDir": "backup",
+    "scanPc": false,
+    "offlineScan": false,
+    "turnOffPcAfterFinish": false,
+    "repos": [
+        {
+            "name": "7zr.exe",
+            "url": "https://7-zip.org/a/7zr.exe"
+        },
+        {
+            "name": "adwcleaner.exe",
+            "url": "https://downloads.malwarebytes.com/file/adwcleaner"
+        }
+    ]
+}
