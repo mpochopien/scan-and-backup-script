@@ -10,12 +10,12 @@ from configReader import readConfig
 
 def main():
     config = readConfig()
+    downloadFromRepo(config)
 
     scanPc()
 
     backupFileName = generateOutputFileName(config)
 
-    downloadFromRepo(config)
     makeBackup(config, backupFileName)
     sendBackupToCloud(backupFileName)
 
@@ -28,7 +28,7 @@ def main():
 def makeBackup(config, backupFileName):
     printMessage("Starting backup")
     files = ' '.join(config["input"])
-    os.system(f"7zr.exe a -t7z -p{config['backupPassword']} {backupFileName} {files}")
+    os.system(f"7zr.exe a -t7z -spf -p{config['backupPassword']} {backupFileName} {files}")
 
 
 def turnOffPc(config):

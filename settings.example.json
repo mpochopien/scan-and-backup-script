@@ -1,6 +1,6 @@
 {
     "input": [
-        "C:\\some\\path\\to\\backup",
+        "C:\\some\\path\\to\\backup"
     ],
     "outputDir": "C:\\place\\to\\save\\backup",
     "outputName": "backup",
@@ -14,6 +14,7 @@
         "refresh_token": null
     },
     "cloudBackupDir": "backup",
+    "sendBackupToCloud": false,
     "scanPc": false,
     "offlineScan": false,
     "turnOffPcAfterFinish": false,
