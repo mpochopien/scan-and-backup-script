@@ -17,6 +17,7 @@
     "sendBackupToCloud": false,
     "scanPc": false,
     "offlineScan": false,
+    "updateSoftwareByWinget": true,
     "turnOffPcAfterFinish": false,
     "repos": [
         {

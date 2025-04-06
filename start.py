@@ -1,15 +1,29 @@
 import os
 import requests
+import ctypes
 from datetime import datetime
 
 from onedriveCloudProvider import sendBackupToCloud
 from printMessage import printMessage
 from scanPc import scanPc, offlineScanPc
 from configReader import readConfig
+from updateSoftware import updateSoftware
 
 
 def main():
+    # try:
+    #     is_admin = os.getuid() == 0
+    # except AttributeError:
+    #     is_admin = ctypes.windll.shell32.IsUserAnAdmin()
+    #
+    # if not is_admin:
+    #     printMessage("Please run script as administrator!")
+    #     return
+
     config = readConfig()
+
+    updateSoftware()
+
     downloadFromRepo(config)
 
     scanPc()
