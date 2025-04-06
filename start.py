@@ -11,14 +11,14 @@ from updateSoftware import updateSoftware
 
 
 def main():
-    # try:
-    #     is_admin = os.getuid() == 0
-    # except AttributeError:
-    #     is_admin = ctypes.windll.shell32.IsUserAnAdmin()
-    #
-    # if not is_admin:
-    #     printMessage("Please run script as administrator!")
-    #     return
+    try:
+        is_admin = os.getuid() == 0
+    except AttributeError:
+        is_admin = ctypes.windll.shell32.IsUserAnAdmin()
+
+    if not is_admin:
+        printMessage("Please run script as administrator!")
+        return
 
     config = readConfig()
 
