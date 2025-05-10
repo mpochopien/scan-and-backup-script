@@ -8,7 +8,7 @@ def scanPc():
 
     if config["scanPc"]:
         printMessage("Starting scan")
-        os.system("adwcleaner.exe /clean /noreboot")
+        os.system("adwcleaner.exe /clean /noreboot /eula")
         os.system("cd /d C:\\ProgramData\\Microsoft\\Windows Defender\\Platform\\4* && MpCmdRun.exe -scan -scantype 2")
         printMessage("Scanning finished")
 

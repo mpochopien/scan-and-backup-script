@@ -1,28 +1,22 @@
 import os
 import requests
-import ctypes
+import random
+import string
 from datetime import datetime
 
-from onedriveCloudProvider import sendBackupToCloud
 from printMessage import printMessage
 from scanPc import scanPc, offlineScanPc
 from configReader import readConfig
 from updateSoftware import updateSoftware
+from clearTmpDirectory import clearTmpDirectory
 
 
 def main():
-    try:
-        is_admin = os.getuid() == 0
-    except AttributeError:
-        is_admin = ctypes.windll.shell32.IsUserAnAdmin()
-
-    if not is_admin:
-        printMessage("Please run script as administrator!")
-        return
-
     config = readConfig()
 
     updateSoftware()
+
+    clearTmpDirectory()
 
     downloadFromRepo(config)
 
@@ -31,7 +25,6 @@ def main():
     backupFileName = generateOutputFileName(config)
 
     makeBackup(config, backupFileName)
-    sendBackupToCloud(backupFileName)
 
     offlineScanPc()
     turnOffPc(config)
@@ -42,7 +35,8 @@ def main():
 def makeBackup(config, backupFileName):
     printMessage("Starting backup")
     files = ' '.join(config["input"])
-    os.system(f"7zr.exe a -t7z -spf -p{config['backupPassword']} {backupFileName} {files}")
+    randomPassword = ''.join(random.choices(string.ascii_letters + string.digits, k=10))
+    os.system(f"7zr.exe a -t7z -spf -p{randomPassword} {backupFileName} {files}")
 
 
 def turnOffPc(config):

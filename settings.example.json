@@ -6,18 +6,10 @@
     "outputName": "backup",
     "addDateToOutputName": true,
     "backupPassword": "SomePassword",
-    "onedrive": {
-        "tenant_id": "common",
-        "client_id": "xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-        "client_secret_value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-        "redirect_url": "http://localhost",
-        "refresh_token": null
-    },
-    "cloudBackupDir": "backup",
-    "sendBackupToCloud": false,
     "scanPc": false,
     "offlineScan": false,
     "updateSoftwareByWinget": true,
+    "clearTmpFolder": true,
     "turnOffPcAfterFinish": false,
     "repos": [
         {
